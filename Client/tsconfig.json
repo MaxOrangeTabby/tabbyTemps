@@ -1,5 +1,8 @@
 {
-  "files": [],
+  "files": [
+    "src/App.tsx",
+    "src/Components/LoadPage/LoadPage.tsx",
+  ],
   "references": [
     {
       "path": "./tsconfig.app.json"
