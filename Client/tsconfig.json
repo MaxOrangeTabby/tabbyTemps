@@ -1,7 +1,7 @@
 {
   "files": [
     "src/App.tsx",
-    "src/Components/LoadPage/LoadPage.tsx",
+    "src/Components/StartPage/StartPage.tsx",
   ],
   "references": [
     {
