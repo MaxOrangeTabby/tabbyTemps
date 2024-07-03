@@ -10,7 +10,7 @@ function WeatherHighlights() {
     const [dallasData, setDallasData] = useState(null);
     const getCityData = async (city) => {
         try {
-            const res = await axios.post('http://localhost:8800/api/weather-data', {
+            const res = await axios.post('https://tabbytemps.onrender.com/weather-data', {
                 location: city
             });
             return ({

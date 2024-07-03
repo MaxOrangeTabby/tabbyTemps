@@ -5,8 +5,11 @@ require('dotenv').config();
 
 
 const app = express();
-app.use(express.json())
-app.use(cors())
+app.use(express.json());
+app.use(cors({
+    origin: 'https://tabbytemps-client.onrender.com/'
+}));
+
 const WEATHER_API_KEY  = process.env.WEATHER_API_KEY
 
 app.post('/api/weather-data', async (req, res)=>{
