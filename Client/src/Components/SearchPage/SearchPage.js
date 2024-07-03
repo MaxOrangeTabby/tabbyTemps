@@ -16,7 +16,7 @@ function SearchPage() {
         e.preventDefault();
         try {
             console.log(city);
-            const res = await axios.post('https://tabbytemps.onrender.com//api/weather-data', {
+            const res = await axios.post('https://tabbytemps.onrender.com/api/weather-data', {
                 location: city,
             });
             console.log(res.data);
