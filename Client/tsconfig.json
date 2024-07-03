@@ -1,5 +1,14 @@
 {
   "include": [],
+  "compilerOptions": {
+    "target": "es2015",
+    "lib": ["es2015", "dom"],
+    "composite": true,
+    "allowImportingTsExtensions": true,
+    "emitDeclarationOnly": true,
+    "outDir": "./dist",
+    "rootDir": "./src"
+  },
   "files": [
     "src/App.tsx",
     "src/Components/StartPage/StartPage.tsx",
