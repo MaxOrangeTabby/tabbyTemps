@@ -15,7 +15,7 @@ function WeatherHighlights() {
 
     const getCityData = async (city : string) : Promise<WeatherData | null> => {
         try{
-            const res = await axios.post('https://tabbytemps.onrender.com/weather-data',{
+            const res = await axios.post('https://tabbytemps.onrender.com/api/weather-data',{
                 location: city
             })
             

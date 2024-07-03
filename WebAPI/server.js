@@ -7,7 +7,7 @@ require('dotenv').config();
 const app = express();
 app.use(express.json());
 app.use(cors({
-    origin: 'https://tabbytemps-client.onrender.com/'
+    origin: 'https://tabbytemps-client.onrender.com'
 }));
 
 const WEATHER_API_KEY  = process.env.WEATHER_API_KEY
@@ -23,7 +23,8 @@ app.post('/api/weather-data', async (req, res)=>{
     }
 });
 
+const PORT = process.env.PORT || 8800;
 
-app.listen(8800, ()=>{
+app.listen(PORT, ()=>{
     console.log("Connected backend")
 })
