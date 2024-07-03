@@ -2,15 +2,13 @@ import React from 'react'
 import {useState}  from 'react'
 
 import axios from 'axios'
-import styles from 'WeatherPage.module.css'
 
-import { Flex, Spacer, Divider,  FormControl, FormLabel, FormErrorMessage, FormHelperText, Input, Box, Button } from '@chakra-ui/react'
+import { Flex, Spacer, Divider,  Input, Button } from '@chakra-ui/react'
 import { motion } from "framer-motion"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCat } from '@fortawesome/free-solid-svg-icons'
 
 import { WeatherData} from '../Types/Types'
-import InfoPage from '../InfoPage/InfoPage'
 import WeatherHighlights from '../WeatherHighlights/WeatherHighlights'
 import WeatherCard from '../WeatherCard/WeatherCard'
 
@@ -33,6 +31,7 @@ function SearchPage() {
       console.log(res.data)
 
       setDataObj({
+        Id: 'main-card',
         City : city,
         TempData : {
           tempC : res.data.current.temp_c,
@@ -66,16 +65,23 @@ function SearchPage() {
   return (
     
     <Flex h={'100vh'} direction={'column'} align={'center'} justify={'space-evenly'}>
-      <Flex h={'20%'} direction={'column'} align={'center'} justify={'center'}>
+      <Flex h={'20%'} w={'100%'} direction={'column'} align={'center'}>
         <WeatherHighlights />
       </Flex>
       <Divider orientation='horizontal' color={'black'}/>
-
-      
         {!dataLoaded ?
         null
         :
-        <motion.div initial={{ opacity: 0, scale: 0.5 }} animate={{ opacity: 1, scale: [.85,1,1.05,1] }}> 
+        <motion.div drag  
+        dragConstraints={{
+          top: -50,
+          left: -50,
+          right: 50,
+          bottom: 50,
+        }}
+        initial={{ opacity: 0, scale: 0.5 }} 
+        animate={{ opacity: 1, scale: [.85,1,1.05,1], }}
+        > 
           <WeatherCard data={dataObj} />  
         </motion.div>
         }
