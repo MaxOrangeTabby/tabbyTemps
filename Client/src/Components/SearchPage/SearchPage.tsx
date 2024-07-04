@@ -8,7 +8,7 @@ import { motion } from "framer-motion"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCat } from '@fortawesome/free-solid-svg-icons'
 
-import { WeatherData} from '../Types/Types'
+import { AddWeatherData, WeatherData} from '../Types/Types'
 import WeatherHighlights from '../WeatherHighlights/WeatherHighlights'
 import WeatherCard from '../WeatherCard/WeatherCard'
 
@@ -16,6 +16,8 @@ import WeatherCard from '../WeatherCard/WeatherCard'
 function SearchPage() {
   const [dataLoaded, setDataLoadded] = useState(false);
   const [dataObj, setDataObj] = useState<WeatherData | null>(null);
+  const [addDataObj, setAddDataObj] = useState<AddWeatherData | null>(null);
+
   const [city, setCity] = useState('');
   const [btnClicked, setBtnClicked] = useState(false);
   
@@ -24,7 +26,7 @@ function SearchPage() {
 
     try{
       console.log(city)
-      const res = await axios.post('https://tabbytemps.onrender.com/api/weather-data', {
+      const res = await axios.post('http://localhost:8800/api/weather-data', {
         location: city,
       });
 
@@ -47,6 +49,20 @@ function SearchPage() {
         }
       });
       
+      setAddDataObj({
+        gustMPH: res.data.current.gust_mph,
+        gustKPH: res.data.current.gust_kph,
+
+        heatIndexF: res.data.current.heatindex_f,
+        heatIndexC: res.data.current.heatindex_c,
+
+        precipIn: res.data.current.precip_in,
+        precipMm: res.data.current.precip_mm,
+
+        windDir: res.data.current.wind_dir,
+        windMPH: res.data.current.wind_mph,
+        windKPH: res.data.current.wind_keph,
+      });
       setDataLoadded(true)
     }
     catch (error){
@@ -82,7 +98,7 @@ function SearchPage() {
         initial={{ opacity: 0, scale: 0.5 }} 
         animate={{ opacity: 1, scale: [.85,1,1.05,1], }}
         > 
-          <WeatherCard data={dataObj} />  
+          <WeatherCard data={dataObj}  addData={addDataObj} />  
         </motion.div>
         }
      

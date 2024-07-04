@@ -12,19 +12,28 @@ export interface WeatherData{
     feelTempF: number;
 
     humidity: number;
+
+    //condition: string;
+    //conditonImg: string;
   }
 
   export interface WeatherLocation{
-
     country: string;
     latitude: number;
     longitude: number;
   }
 
-  export interface WeekTemps{
-    monday : string,
-    tuesday: string,
-    wednesday: string,
-    thursday: string, 
-    friday: string
+  export interface AddWeatherData{
+    gustMPH: number;
+    gustKPH: number;
+    
+    heatIndexF: number;
+    heatIndexC: number;
+
+    precipIn: number;
+    precipMm: number;
+
+    windDir: string;
+    windMPH: number;
+    windKPH: number;
   }

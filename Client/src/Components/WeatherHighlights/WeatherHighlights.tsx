@@ -15,7 +15,7 @@ function WeatherHighlights() {
 
     const getCityData = async (city : string) : Promise<WeatherData | null> => {
         try{
-            const res = await axios.post('https://tabbytemps.onrender.com/api/weather-data',{
+            const res = await axios.post('http://localhost:8800/api/weather-data',{
                 location: city
             })
             
@@ -65,7 +65,7 @@ function WeatherHighlights() {
             animate={{opacity: [0, .25, .5, .75, 1]}}
             transition={{ delay: 0.2 }}
             >
-            <WeatherCard data={houstonData}/>
+            <WeatherCard data={houstonData} addData={null}/>
         </motion.div>
 
         <motion.div
@@ -73,7 +73,7 @@ function WeatherHighlights() {
             animate={{opacity: [0, .25, .5, .75, 1]}}
             transition={{ delay: 0.4 }}
             >
-            <WeatherCard data={austinData}/>
+            <WeatherCard data={austinData} addData={null}/>
         </motion.div>
 
         <motion.div
@@ -81,7 +81,7 @@ function WeatherHighlights() {
             animate={{opacity: [0, .25, .5, .75, 1]}}
             transition={{ delay: 0.6 }}
             >
-            <WeatherCard data={dallasData}/>
+            <WeatherCard data={dallasData} addData={null}/>
         </motion.div>
     </Flex>
   )
