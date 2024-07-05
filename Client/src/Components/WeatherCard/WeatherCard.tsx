@@ -36,7 +36,7 @@ function WeatherCard({data, addData} : WeatherCardProps) {
                 <Divider orientation={'vertical'} />
                 <CardBody>
                     <Flex direction={'column'} justify={'center'} align={'center'} >
-                        <Heading fontSize={['sm', 'md', 'lg','xl']}>{data?.City}</Heading>
+                        <Heading fontSize={['sm', 'md', 'lg','lg','xl']}>{data?.City}</Heading>
                         <Flex sx={{
                             display: data?.Id === 'main-card' ? 'flex' : 
                             {base: 'none', sm: 'none', md: 'flex' }}}
