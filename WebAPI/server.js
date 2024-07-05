@@ -7,7 +7,7 @@ require('dotenv').config();
 const app = express();
 app.use(express.json());
 
-const allowedOrigins = ['https://tabbytemps-client.onrender.com', 'https://tabbytemps-client.onrender.com/weather-page','http://localhost:5173/weather-page']
+const allowedOrigins = ['https://tabbytemps-client.onrender.com', 'https://tabbytemps-client.onrender.com/weather-page','http://localhost:5173']
 app.use(cors({
     origin: allowedOrigins
 }));
