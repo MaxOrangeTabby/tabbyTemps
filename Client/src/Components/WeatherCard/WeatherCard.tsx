@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { AddWeatherData, WeatherData } from '../Types/Types'
 
 import { Card, CardBody, Divider, Flex, Heading, Text, Box } from '@chakra-ui/react'
-import { AnimatePresence } from 'framer-motion'
+import { AnimatePresence, motion } from 'framer-motion'
 
 import WeatherCardAdd from '../../WeatherCardAdd/WeatherCardAdd'
 
@@ -10,6 +10,9 @@ interface WeatherCardProps{
     data : WeatherData | null,
     addData : AddWeatherData | null,
 }
+
+const MotionWeatherCardAdd = motion(WeatherCardAdd)
+
 
 function WeatherCard({data, addData} : WeatherCardProps) {
     const [show, setShow] = useState(false)
@@ -50,7 +53,7 @@ function WeatherCard({data, addData} : WeatherCardProps) {
             </Card>
 
             <AnimatePresence>
-                {show && addData ? <WeatherCardAdd data={data} addData={addData}/> : null}
+                {show && addData ? <motion.div   initial={{ scale: 0 }} animate={{ scale: 1 }} exit={{ scale: 0 }}><WeatherCardAdd data={data} addData={addData}/></motion.div> : null}
             </AnimatePresence>
         </Box> 
     )
