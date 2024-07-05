@@ -4,14 +4,12 @@ import { AddWeatherData, WeatherData } from '../Types/Types'
 import { Card, CardBody, Divider, Flex, Heading, Text, Box } from '@chakra-ui/react'
 import { AnimatePresence, motion } from 'framer-motion'
 
-import WeatherCardAdd from '../../WeatherCardAdd/WeatherCardAdd'
+import WeatherCardAdd from '../WeatherCardAdd/WeatherCardAdd'
 
 interface WeatherCardProps{
     data : WeatherData | null,
     addData : AddWeatherData | null,
 }
-
-const MotionWeatherCardAdd = motion(WeatherCardAdd)
 
 
 function WeatherCard({data, addData} : WeatherCardProps) {
@@ -27,8 +25,8 @@ function WeatherCard({data, addData} : WeatherCardProps) {
                     }
                 fontFamily={'Raleway'}
                 mt={'1rem'} 
-                border={'2px solid #58B09C'}
-                bg={'#CAF7E2'}
+                border={'2px solid #095256'}
+                bg={'white'}
                 >
                 <Flex direction={'column'} justify={'center'} align={'center'} px={'1rem'}>
                     <Text fontSize={['md', 'lg', 'lg','3xl']}>{data?.TempData.tempF} F</Text>
@@ -37,7 +35,7 @@ function WeatherCard({data, addData} : WeatherCardProps) {
             
                 <Divider orientation={'vertical'} />
                 <CardBody>
-                    <Flex direction={'column'} justify={'center'} align={'center'}>
+                    <Flex direction={'column'} justify={'center'} align={'center'} >
                         <Heading fontSize={['sm', 'md', 'lg','xl']}>{data?.City}</Heading>
                         <Flex sx={{
                             display: data?.Id === 'main-card' ? 'flex' : 
@@ -52,9 +50,9 @@ function WeatherCard({data, addData} : WeatherCardProps) {
                 </CardBody>
             </Card>
 
-            <AnimatePresence>
-                {show && addData ? <motion.div   initial={{ scale: 0 }} animate={{ scale: 1 }} exit={{ scale: 0 }}><WeatherCardAdd data={data} addData={addData}/></motion.div> : null}
-            </AnimatePresence>
+            <Box onClick={() => setShow(!show)}>
+               <AnimatePresence> {show && addData ? <motion.div initial={{ scale: 0}} animate={{ scale: [.5,1], rotate: 0 }} exit={{ scale: [.5, 0]}}><WeatherCardAdd data={data} addData={addData}/></motion.div> : null} </AnimatePresence>
+            </Box>
         </Box> 
     )
 }
