@@ -1,5 +1,4 @@
-import { Box, Card, CardBody, CardHeader, Center, Divider, Flex, Heading, Text } from '@chakra-ui/react'
-import React from 'react'
+import { Card, CardBody, CardHeader, Center, Divider, Flex, Text } from '@chakra-ui/react'
 import { AddWeatherData, WeatherData } from '../Types/Types'
 
 interface WeatherCardAddProps{
