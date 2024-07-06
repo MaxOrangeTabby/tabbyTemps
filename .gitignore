@@ -1,2 +1,5 @@
 
 WebAPI/.env
+Client/tsconfig.tsbuildinfo
+*.js
+*.ts
