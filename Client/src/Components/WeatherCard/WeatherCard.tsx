@@ -25,8 +25,9 @@ function WeatherCard({data, addData} : WeatherCardProps) {
                     }
                 fontFamily={'Raleway'}
                 mt={'1rem'} 
-                border={'2px solid #095256'}
+                border={'2px solid #fbae87'}
                 bg={'white'}
+                color={'#BF4E30'}
                 >
                 <Flex direction={'column'} justify={'center'} align={'center'} px={'1rem'}>
                     <Text fontSize={['md', 'lg', 'lg','3xl']}>{data?.TempData.tempF} F</Text>
