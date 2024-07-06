@@ -29,7 +29,7 @@ function SearchPage() {
     e.preventDefault();
 
     try{
-      console.log(city)
+      setIsLoading(true)
       const res = await axios.post('https://tabbytemps.onrender.com/api/weather-data', {
         location: city,
       });
@@ -72,6 +72,7 @@ function SearchPage() {
       console.log('Data Loaded')
     }
     catch (error){
+      setIsLoading(false)
       console.log(error)
     }
   };
@@ -146,8 +147,6 @@ function SearchPage() {
             </Input>
             <Button
               type='submit'
-
-              onClick={() => setIsLoading(true)}
 
               variant='outline'
               color={'#BF4E30'}
