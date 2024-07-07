@@ -13,7 +13,7 @@ import WeatherHighlights from '../WeatherHighlights/WeatherHighlights'
 import WeatherCard from '../WeatherCard/WeatherCard'
 import OrangeCatIcon from '../Images/orangeCatIcon.png'
 import OrangeTextBubble from '../Images/orangeTextBubble.png'
-import SearchPageBg from '../Images/searchPageBg.webp'
+import SearchPageBg from '../Images/searchPageBg.svg'
 
 
 function SearchPage() {
