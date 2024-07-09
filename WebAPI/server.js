@@ -26,10 +26,11 @@ app.post('/api/weather-data', async (req, res)=>{
 });
 
 app.get('/*', (req, res) => {
-    res.sendFile('index.html');
+    res.sendFile(path.join(__dirname, 'Client', 'index.html'));
 });
 
 const PORT = process.env.PORT || 8800;
 app.listen(PORT, ()=>{
     console.log("Connected backend")
+
 })
