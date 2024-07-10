@@ -27,7 +27,7 @@ app.post('/api/weather-data', async (req, res)=>{
 });
 
 app.get('/*', (req, res) => {
-    res.sendFile(path.join(__dirname, 'Client', 'index.html'));
+    res.sendFile(path.join(__dirname, 'index.html'));
 });
 
 const PORT = process.env.PORT || 8800;
